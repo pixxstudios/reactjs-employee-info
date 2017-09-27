@@ -26,3 +26,37 @@
 .app-header{
   font-size: 18px;
 }
+
+.employee-item{
+  border: solid 2px blue;
+  margin:5px;
+  display: block;
+  float: left;
+  cursor:pointer;
+  width: 30%;
+}
+
+.employee-img {
+  float: left;
+  padding-right: 10px;
+}
+
+.employee-name{
+  padding: 5px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.employee-details{
+  display: block;
+  min-width: 50%;
+}
+
+.employee-age{
+  display: block;
+}
+
+.employee-job{
+  display: block;
+
+}

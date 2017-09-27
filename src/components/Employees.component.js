@@ -1,28 +1,40 @@
 import React, { Component } from 'react';
 import '../App.css';
-import $ from 'jquery';
 import EmployeesItem from './EmployeesItem.component';
 
 export default class Employees extends Component{
   constructor(props){
     super(props);
-    this.LoadEmployeeData();
+
+    this.state = {
+      employees:[]
+    };
   }
 
-  LoadEmployeeData(){
-    console.log('loading employee data ... ');
-
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      employees: nextProps.employees
+    });
   }
 
   render(){
     return(
-      <div>
-        <EmployeesItem />
-        <EmployeesItem />
-        <EmployeesItem />
-        <EmployeesItem />
-        <EmployeesItem />
-        <EmployeesItem />
+      <div className="col-sm-3">
+        {
+          this.state.employees.map(function(employee, index){
+                return <EmployeesItem
+                        key={index}
+                        avatar={employee.avatar}
+                        index={index}
+                        age={employee.age}
+                        bio={employee.bio}
+                        dateJoined={employee.dateJoined}
+                        firstName={employee.firstName}
+                        lastName={employee.lastName}
+                        jobTitle={employee.jobTitle}
+                />
+          })
+        }
       </div>
     )
   }
