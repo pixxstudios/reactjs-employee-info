@@ -24,20 +24,18 @@ class App extends Component {
   }
 
   LoadEmployeeData(data){
-  //  console.log("LoadEmployeeData");
-    //console.log(this);//callback(data);
      this.setState({
        companyInfo : data.companyInfo,
        employees : data.employees
       });
+      console.log(this.state.companyInfo);
       this.forceUpdate();
   }
 
   render() {
-    //console.log(this.state.employees);
     return (
       <div className="container-fluid">
-        <AppHeader />
+        <AppHeader companyInfo = {this.state.companyInfo}/>
         <Employees employees = { this.state.employees } />
       </div>
     );
