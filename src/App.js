@@ -24,7 +24,7 @@ class App extends Component {
   }
 
   LoadEmployeeData(data){
-    console.log("LoadEmployeeData");
+  //  console.log("LoadEmployeeData");
     //console.log(this);//callback(data);
      this.setState({
        companyInfo : data.companyInfo,
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.employees);
+    //console.log(this.state.employees);
     return (
       <div className="container-fluid">
         <AppHeader />

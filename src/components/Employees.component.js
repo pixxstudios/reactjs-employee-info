@@ -19,7 +19,7 @@ export default class Employees extends Component{
 
   render(){
     return(
-      <div className="col-sm-3">
+      <div>
         {
           this.state.employees.map(function(employee, index){
                 return <EmployeesItem
