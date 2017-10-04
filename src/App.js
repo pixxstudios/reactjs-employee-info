@@ -28,7 +28,6 @@ class App extends Component {
        companyInfo : data.companyInfo,
        employees : data.employees
       });
-      console.log(this.state.companyInfo);
       this.forceUpdate();
   }
 

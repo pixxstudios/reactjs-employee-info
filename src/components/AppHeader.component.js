@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import '../App.css';
 
 export default class AppHeader extends Component{
+  constructor(props){
+    super(props);
+    this.state = {companyEst : ""};
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      companyEst : nextProps.companyInfo.companyEst.substring(0,10)
+    })
+  }
 
   render(){
     return(
@@ -12,7 +22,7 @@ export default class AppHeader extends Component{
           </div>
 
           <div className="header-right">
-          Since: {this.props.companyInfo.companyEst}
+            Since: {this.state.companyEst}
           </div>
       </div>
     )
