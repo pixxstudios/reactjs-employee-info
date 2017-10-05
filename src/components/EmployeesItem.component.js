@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import EmployeesImage from './EmployeesImage.component';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../App.css';
 
@@ -10,20 +11,25 @@ export default class EmployeesItem extends Component{
     this.closeModal = this.closeModal.bind(this);
     this.modal ="";
     this.state = {
-      showModal : false
+      showModal : false,
+      isSelected:false
     };
 }
 
   // close the modal window on clicking of the close button
   closeModal(){
     this.modal.style.display = "none" ;
+    this.setState({
+      isSelected:false
+    })
   }
 
   // opens the modal window on clicking of the tile
   openModal(){
     this.setState({
       showModal:true,
-      show:true
+      show:true,
+      isSelected:true
     });
 
     this.modal = ReactDOM.findDOMNode(this.refs.myModal);
@@ -32,7 +38,7 @@ export default class EmployeesItem extends Component{
 
   render(){
     return(
-      <div className="employee-item" >
+      <div className={this.state.isSelected ? ' employee-item emp-item-selected' : 'employee-item  none'}>
       <div className="employee-img" onClick = {this.openModal}>
         <img src={this.props.avatar} alt="" className="img-thumbnail"/>
       </div>
@@ -48,7 +54,7 @@ export default class EmployeesItem extends Component{
           <span className="close" onClick={this.closeModal}>&times;</span>
           <div>
             <div className="modal-left">
-              <img src={this.props.avatar} alt="" className="img-thumbnail"/>
+              <EmployeesImage img_url={this.props.avatar}/>
               <h5>{this.props.jobTitle}</h5>
               <h5>Age: {this.props.age}</h5>
               <h5>Date Joined: {this.props.dateJoined.substring(0,10)}</h5>

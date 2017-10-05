@@ -63,6 +63,10 @@
   position: absolute;
 }
 
+.emp-item-selected{
+  border: 1px solid blue;
+  background-color: #89b6ff;
+}
 
 
 @media only screen and (max-width:1100px) {
